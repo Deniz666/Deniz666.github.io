@@ -1,59 +1,74 @@
-  <html>
-      <body bgcolor="yellow">
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SIMPLE JAVASCRIPT EXAMPLE</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-      <head>
-        <title>MATH IS A GORGEOUS SUBJECT</title>
-        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
     <body>
-        <font color="blue">
+        <div>
+            
+           <form>
+            <input type="text" id="input1">
+            <select id="operator">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>             </select>
+            <input type="text" id="input2">
+           <input type="button" id="calc" value="calc" onclick="calculate();">
+            <input type="text" id="output" disabled>
+           <br>
+         </form>
+          <div id="error">
+          </div>
+            <script>
+             var i = 1;
+           
+          function calculate() {
+                var in1 = parseInt($('#input1').val());
+                var in2 = parseInt($('#input2').val());
+               if(checkInput1(in1,in2)) {
+                   var res = eval(in1 + $('#operator').val() + in2);
+                  $('#output').val(res);
+               } else {
+                    $('#error').html("You made "+ i +" mistakes");
+                   i++;
+               }
+           }
+
+            function checkInput1(in1,in2) {
+                if(! isNaN(in1) && ! isNaN(in2)) { // || means OR; && means AND; ! means NOT
+                    return false;
+               }
+               return true;
+           }    
+           function checkInput2(in1,in2) {
+               if(isNaN(in1)) {
+                   return false;
+               }
+               if(isNaN(in2)) {
+                   return false;
+               }
+               return true;
+           }
+           
+           function checkInput3(in1,in2) {
+               if(isNaN(in1)) {
+                   return false;
+               } else if(isNaN(in2)) {
+                   return false;
+               }
+                return true;
+            }
+            </script>
        
-         <h1>LET`S DO SOME MATH</h1>
-    
-<h3>SIMPLE MATHEMATIC CALCULATIONS</h3>
-<br/>
-<form Name="calc">
-<table border=2>
-<tr>
-<td colspan=4><input type=text Name="display"></td>
-</tr>
-<tr>
-<td><input type=button value="0" OnClick="calc.display.value+='0'"></td>
-<td><input type=button value="1" OnClick="calc.display.value+='1'"></td>
-<td><input type=button value="2" OnClick="calc.display.value+='2'"></td>
-<td><input type=button value="+" OnClick="calc.display.value+='+'"></td>
-</tr>
-<tr>
-<td><input type=button value="3" OnClick="calc.display.value+='3'"></td>
-<td><input type=button value="4" OnClick="calc.display.value+='4'"></td>
-<td><input type=button value="5" OnClick="calc.display.value+='5'"></td>
-<td><input type=button value="-" OnClick="calc.display.value+='-'"></td>
-</tr>
-<tr>
-<td><input type=button value="6" OnClick="calc.display.value+='6'"></td>
-<td><input type=button value="7" OnClick="calc.display.value+='7'"></td>
-<td><input type=button value="8" OnClick="calc.display.value+='8'"></td>
-<td><input type=button value="x" OnClick="calc.display.value+='*'"></td>
-</tr>
-<tr>
-<td><input type=button value="9" OnClick="calc.display.value+='9'"></td>
-<td><input type=button value="C" OnClick="calc.display.value=''"></td>
-<td><input type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
-<td><input type=button value="/" OnClick="calc.display.value+='/'"></td>
-</tr>
-</table>
-</form>
-
-<p> ARE YOU SATISFIED BY OUR PAGE?</p> 
-            
-         <select name="ANSWER"> 
-            
-           <option value="YES"> Yes </option>
-            <option value="NO"> No </option> <br> </select>
-<a href="http://www.dummies.com/how-to/education-languages/math.html">DO YOU NEED HELP ON MATH?</a>
-         
-</body>
-        
-        
-   </head>
+    </body>
 </html>
-
